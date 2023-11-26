@@ -1,0 +1,125 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  background-color:plum;
+}
+
+.main-content{
+    margin-left:300px;
+}
+
+
+.login-logout-card .card-header{
+    padding: 0px 0px 12px 0px;
+}
+.login-logout-card ul.nav-item {
+    margin: 0px 0px -12px 0px;
+}
+.login-logout-card li.nav-item{
+    width:50%;
+}
+
+.login-logout-card a.nav-link {
+    font-size: 1rem;
+    color: #495057;
+    text-align: center;
+    padding: 1rem;
+}
+
+.login-logout-card .card-body{
+    padding:10px 20px;
+}
+
+.form-floating {
+    padding: 10px 0px;
+}
+
+#e-bigger {
+    font-size: x-large;
+
+}
+
+    .e-grid .e-gridcontent, .e-grid .e-table {
+        background-color: lightskyblue;
+        
+    }
+
+.e-grid .e-gridheader {
+    border: 2px;
+    align-items: center;
+    padding: 10px;
+    background-color: dodgerblue;
+}
+.e-grid .e-gridcontent{
+    
+    align-items:center;
+   
+    
+}
+.widget{
+           /*border-radius:1rem;*/
+           background-color:#1a222b;
+       }
+.widget.summary{
+    background-color:lightgreen;
+    padding:1rem;
+    border-top-left-radius:1rem;
+    border-bottom-left-radius:1rem;
+
+}
+.totalexp {
+    padding: 20px;
+    background-color: khaki;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    width: 300px;
+    border-radius: 30%;
+    margin: auto;
+    margin-bottom: 20px;
+   
+}
+
+.control-label {
+    color: white;
+}
+.btn1 {
+    text-align:right;
+}
+
+
+
+.no-a-decoration, .no-a-decoration:hover {
+    text-decoration: none;
+    color: inherit;
+}
+/* BreadCrumb*/
+.e-breadcrumb a, .e-breadcrumb  {
+    text-decoration: none !important;
+    color: white;
+}
+
+#menu{
+    margin-top:60px;
+    width:130%;
+    height:70%;
+    background-color:palegreen;
+}
+#menu .e-menu-item{
+    box-sizing:border-box;
+    height:70px;
+}

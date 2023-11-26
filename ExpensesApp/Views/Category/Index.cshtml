@@ -1,0 +1,49 @@
+﻿@model IEnumerable<ExpensesApp.Models.Category>
+
+@{
+    ViewData["PageTitle"] = "Categories";
+    ViewData["PageActionText"] = "+ New Category";
+    ViewData["PageActionUrl"] = "/Category/AddOrEdit";
+    
+}
+<partial name="_SideBar" />
+   
+
+<div class="row-mb-5 align-items-center" >
+    <div class="col-md-5">
+        <ejs-grid id="categories" dataSource="@Model" width="700px"
+                  allowSorting="true" allowPaging="true" allowFiltering="true">
+             <e-grid-pagesettings pageSize="5"></e-grid-pagesettings> 
+            <e-grid-columns>
+                <e-grid-column headerText="Category" field="Title"  textAlign="Center"></e-grid-column>
+                <e-grid-column headerText="Actions" textAlign="Center" template="#actionColumnTemplate"></e-grid-column>
+            </e-grid-columns>
+        </ejs-grid>
+    </div>
+</div>
+
+<script id="actionColumnTemplate" type="text/x-template">
+     
+        <form class="btn btn-sm no-a-decoration" action="/Category/AddOrEdit/${CategoryId}">
+
+            <button type="submit" class="btn btn-primary">
+                Edit
+            </button>
+
+        </form>
+
+        <form class="btn btn-sm no-a-decoration" action="/Category/Delete/${CategoryId}" method="post">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-danger"
+                    onclick=" return confirm(&quot;Are sure to delete this record?&quot;)">
+                Delete
+            </button>
+        </form>
+   
+    
+
+
+        
+        
+</script>
+

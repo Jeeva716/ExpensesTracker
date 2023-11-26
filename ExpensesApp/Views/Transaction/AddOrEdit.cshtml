@@ -1,0 +1,70 @@
+﻿@model ExpensesApp.Models.Transaction
+
+@{
+    ViewData["PageTitle"] = Model.TeansactionId == 0 ? "Create New Transaction" : "Edit Transaction";
+
+}
+<partial name="_SideBar" />
+
+<h3>Create Transaction</h3>
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <div class="widget p-2" style="background-color:lightskyblue">
+            <form asp-action="AddOrEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" name="TeansactionId" value="@Model.TeansactionId" />
+                    <div class="mb-3">
+                        <label >Date</label>
+                        <ejs-datepicker id="date" ejs-for="Date"
+                        placeholder="Date" 
+                        format="MMM-dd-yy"></ejs-datepicker>
+                        <span asp-validation-for="Date" class="text-danger"></span>
+                    </div>
+                <div class="mb-3">
+                    <label>Category</label>
+                    <ejs-dropdownlist id="ddlCategory" ejs-for="CategoryId"
+                     dataSource="@ViewBag.Categories" placeholder="Category"
+                     allowFiltering="true" ignoreAccent="true"
+                    filterType="Contains" popupHeight="220px">
+                    <e-dropdownlist-fields value="CategoryId" text="Title"></e-dropdownlist-fields>
+                </ejs-dropdownlist>
+                <span asp-validation-for="CategoryId" class="text-danger fs-6 "></span>
+                    </div>
+               
+                
+           <div class="mb-3">
+                    <label>Amount</label>
+               <ejs-numerictextbox id="amount" ejs-for="Amount"
+                        placeholder="Amount" 
+                        min=0 format="c0"></ejs-numerictextbox>
+                    <span asp-validation-for="Amount" class="text-danger "></span>
+
+                </div>
+                <div class="mb-3">
+                    <label>Note</label>
+                <ejs-textbox id="note" ejs-for="Note"
+                 placeholder="Note" multiline="true">
+                    </ejs-textbox>
+                <span asp-validation-for="Note" class="text-danger"></span>
+            </div>
+               
+                <div >
+               <ejs-button id="sumbit" type="sumbit" content="Sumbit" cssClass="e-success"></ejs-button>
+            </div>
+        </form>
+
+       </div>
+       
+
+    </div>
+    
+    
+</div>
+
+
+
+@* @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+ *@

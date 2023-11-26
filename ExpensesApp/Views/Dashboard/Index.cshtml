@@ -1,0 +1,97 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData[":isDashboard"] = true;
+}
+
+
+    <partial name="_SideBar" />
+
+
+@* widget *@
+<div class="totalexp">
+    <div>
+        <span class="lead"><b>Total Expense</b></span>
+    </div>
+<div>
+    <h1 class="display-6 fw-bold">@ViewBag.TotalExpense</h1>
+</div>
+</div>
+
+@* chart *@
+<div class="row mb-8">
+    <div class="col-md-6">
+        <div class="widget text-light" >
+        <div class="p-4">
+            <h5 class="fw-bold">Expense By Category</h5>
+        </div>
+        </div>
+        <ejs-accumulationchart id="doughnutchart" background="lightskyblue">
+            <e-accumulation-series-collection>
+                <e-accumulation-series dataSource="@ViewBag.DoughnutChartData"
+                                       xName="categoryTitle" yName="amount"
+                                       innerRadius="60%" legendShape="Circle">
+                    <e-accumulationseries-datalabel name="formattedAmount" visible></e-accumulationseries-datalabel>
+                </e-accumulation-series>
+            </e-accumulation-series-collection>
+            <e-accumulationchart-legendsettings position="Top" toggleVisibility="false">
+                <e-legendsettings-textstyle color="black" size="1rem"></e-legendsettings-textstyle>
+            </e-accumulationchart-legendsettings>
+            <e-accumulationchart-tooltipsettings enable></e-accumulationchart-tooltipsettings>
+        </ejs-accumulationchart>
+    </div>
+    <div class="col-md-6">
+        <div class="widget chart">
+            <div class="p-4">
+                <h5 class="fw-bold text-light">Expense</h5>
+            </div>
+            <ejs-chart id="spline-chart" background="lightskyblue">
+
+                <e-chart-primaryxaxis valueType="Category">
+                    <e-majorgridlines width="0"></e-majorgridlines>
+                    <e-majorticklines width="0"></e-majorticklines>
+                </e-chart-primaryxaxis>
+                <e-chart-primaryyaxis>
+                    <e-majorgridlines width="1"></e-majorgridlines>
+                    <e-majorticklines width="0"></e-majorticklines>
+                </e-chart-primaryyaxis>
+                <e-chart-chartarea><e-chartarea-border width="0"></e-chartarea-border></e-chart-chartarea>
+                <e-series-collection>
+                    <e-series dataSource="ViewBag.SplineChartData" xName="day" width="3"
+                              yName="expense" name="Expense" type="@Syncfusion.EJ2.Charts.ChartSeriesType.Spline">
+
+                    </e-series>
+                </e-series-collection>
+                <e-chart-legendsettings>
+                    <e-legendsettings-textstyle color=" red" size="1rem"></e-legendsettings-textstyle>
+                </e-chart-legendsettings>
+            </ejs-chart>
+        </div>
+
+    </div>
+</div>
+
+@* Recent Transaction *@
+
+<div class="row mt-5 ">
+    <div class="col-md-10">
+
+        <div class="widget text-light">
+        <div class="p-4">
+            
+            <h5 class="fw-bold">Recent Transactions</h5>
+        </div>
+        <div class="px-4 pb-4 ">
+            <ejs-grid id="recent-transactions"
+               dataSource="@ViewBag.RecentTransactions">
+            <e-grid-columns>
+                        <e-grid-column headerText="Category" field="CategoryTitle"></e-grid-column>
+                        <e-grid-column headerText="Date" field="Date" type="date" format="MMM-dd-yy"></e-grid-column>
+                        <e-grid-column headerText="Amount" field="Amount"></e-grid-column>
+            </e-grid-columns>
+        </ejs-grid>
+        </div>
+      </div>
+   </div>
+</div>
